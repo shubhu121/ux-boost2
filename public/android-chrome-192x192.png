@@ -1,0 +1,5 @@
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#FFD700" rx="32"/>
+  <text x="96" y="130" font-family="Arial, sans-serif" font-size="85" font-weight="bold" text-anchor="middle" fill="#000">UX</text>
+  <path d="M118 48 L154 85 L118 122" stroke="#000" stroke-width="8" fill="none"/>
+</svg>
