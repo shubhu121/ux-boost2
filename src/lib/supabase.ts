@@ -17,20 +17,48 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 
 // Type definition for audit request data
 export interface AuditRequest {
+  id?: string
   name: string
   email: string
-  company?: string
+  company?: string | null
   website: string
   user_type: string
   goal: string
   plan: 'starter' | 'growth' | 'founder'
+  status?: 'pending' | 'in_progress' | 'completed' | 'cancelled'
+  created_at?: string
+  updated_at?: string
 }
 
 // Function to insert audit request
-export async function insertAuditRequest(data: AuditRequest) {
-  const { error } = await supabase
+export async function insertAuditRequest(data: Omit<AuditRequest, 'id' | 'created_at' | 'updated_at'>) {
+  const { data: result, error } = await supabase
     .from('audit_requests')
     .insert([data])
+    .select()
+    .single()
+
+  if (error) throw error
+  return result
+}
+
+// Function to get all audit requests (for admin)
+export async function getAuditRequests(): Promise<AuditRequest[]> {
+  const { data, error } = await supabase
+    .from('audit_requests')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (error) throw error
+  return data || []
+}
+
+// Function to update audit request status
+export async function updateAuditRequestStatus(id: string, status: AuditRequest['status']) {
+  const { error } = await supabase
+    .from('audit_requests')
+    .update({ status, updated_at: new Date().toISOString() })
+    .eq('id', id)
 
   if (error) throw error
 }
