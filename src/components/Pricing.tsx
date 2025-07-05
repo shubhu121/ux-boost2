@@ -159,41 +159,16 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Enhanced Money-Back Guarantee */}
-        <div className="mt-16 relative">
-          {/* Animated background elements */}
-          <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 border-4 border-black dark:border-gray-100 shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] animate-pulse"></div>
-          
-          {/* Floating guarantee badges */}
-          <div className="absolute -top-6 -left-6 bg-green-400 border-4 border-black dark:border-gray-100 p-3 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#f3f4f6] transform rotate-12 animate-bounce">
-            <span className="font-black text-black text-sm">100% SAFE</span>
+        {/* Simplified Money-Back Guarantee */}
+        <div className="mt-16 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6]">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Zap className="h-8 w-8 text-black" />
+            <h3 className="text-3xl font-black text-black">7-Day Money-Back Guarantee</h3>
+            <Zap className="h-8 w-8 text-black" />
           </div>
-          
-          <div className="absolute -top-6 -right-6 bg-blue-400 border-4 border-black dark:border-gray-100 p-3 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#f3f4f6] transform -rotate-12 animate-bounce">
-            <span className="font-black text-black text-sm">NO RISK</span>
-          </div>
-
-          <div className="relative p-8 text-center">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <Zap className="h-8 w-8 text-black animate-pulse" />
-              <h3 className="text-3xl font-black text-black">💰 MONEY-BACK GUARANTEE 💰</h3>
-              <Zap className="h-8 w-8 text-black animate-pulse" />
-            </div>
-            <p className="text-black font-bold max-w-2xl mx-auto text-lg mb-4">
-              Not happy with your audit? Get a <span className="bg-red-400 px-2 py-1 border-2 border-black">FULL REFUND</span> within 7 days, <span className="whitespace-nowrap">no questions asked!</span>
-            </p>
-            <div className="flex items-center justify-center space-x-2">
-              <div className="bg-white border-2 border-black px-3 py-1 font-black text-black text-sm">
-                ✅ RISK-FREE
-              </div>
-              <div className="bg-white border-2 border-black px-3 py-1 font-black text-black text-sm">
-                ✅ GUARANTEED
-              </div>
-              <div className="bg-white border-2 border-black px-3 py-1 font-black text-black text-sm">
-                ✅ TRUSTED
-              </div>
-            </div>
-          </div>
+          <p className="text-black font-bold max-w-2xl mx-auto text-lg">
+            Not happy with your audit? Get a full refund within 7 days, no questions asked.
+          </p>
         </div>
       </div>
     </section>
