@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, Globe, Users, Target, CheckCircle, AlertCircle } from 'lucide-react';
 import { insertAuditRequest, type AuditRequest } from '../lib/supabase';
+import CountdownTimer from './CountdownTimer';
 
 const GetStarted = () => {
   const [formData, setFormData] = useState({
@@ -114,6 +115,11 @@ const GetStarted = () => {
   return (
     <section id="get-started" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-4xl mx-auto">
+        {/* Countdown Timer */}
+        <div className="mb-8">
+          <CountdownTimer />
+        </div>
+
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black dark:text-gray-100 mb-4 sm:mb-6">
             Ready to Fix Your UX?

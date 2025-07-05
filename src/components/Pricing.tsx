@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, Star, Zap, Flame, TrendingUp } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
 
 const Pricing = () => {
   const scrollToGetStarted = () => {
@@ -74,6 +75,11 @@ const Pricing = () => {
   return (
     <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
+        {/* Countdown Timer */}
+        <div className="mb-8">
+          <CountdownTimer />
+        </div>
+
         {/* Launch Day Special Banner */}
         <div className="mb-12 bg-gradient-to-r from-red-500 to-orange-500 border-4 border-black dark:border-gray-100 p-6 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] animate-pulse">
           <div className="flex items-center justify-center space-x-3 mb-3">

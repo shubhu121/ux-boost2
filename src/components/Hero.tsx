@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, TrendingUp, Sparkles, Zap } from 'lucide-react';
+import CountdownTimer from './CountdownTimer';
 
 const Hero = () => {
   const scrollToGetStarted = () => {
@@ -27,6 +28,11 @@ const Hero = () => {
       </div>
       
       <div className="max-w-7xl mx-auto relative pt-12 sm:pt-16">
+        {/* Countdown Timer */}
+        <div className="mb-8 sm:mb-12">
+          <CountdownTimer />
+        </div>
+
         <div className="text-center mb-8 sm:mb-16">
           <div className="flex justify-center mb-6 sm:mb-8">
             <div className="flex items-center space-x-2 bg-yellow-400 border-2 sm:border-4 border-black dark:border-gray-100 px-3 sm:px-6 py-2 sm:py-3 shadow-[3px_3px_0px_0px_#000] sm:shadow-[6px_6px_0px_0px_#000] dark:shadow-[3px_3px_0px_0px_#f3f4f6] sm:dark:shadow-[6px_6px_0px_0px_#f3f4f6] transform -rotate-1">
