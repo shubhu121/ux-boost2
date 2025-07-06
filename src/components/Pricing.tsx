@@ -1,6 +1,5 @@
 import React from 'react';
-import { Check, Star, Zap, Flame, TrendingUp } from 'lucide-react';
-import CountdownTimer from './CountdownTimer';
+import { Check, Star, Zap } from 'lucide-react';
 
 const Pricing = () => {
   const scrollToGetStarted = () => {
@@ -10,8 +9,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Starter",
-      originalPrice: 49,
-      price: 24.50,
+      price: 49,
       description: "Perfect for early-stage startups",
       features: [
         "Basic UX audit PDF",
@@ -27,8 +25,7 @@ const Pricing = () => {
     },
     {
       name: "Growth",
-      originalPrice: 149,
-      price: 74.50,
+      price: 149,
       description: "Most popular for growing startups",
       features: [
         "Everything in Starter",
@@ -45,8 +42,7 @@ const Pricing = () => {
     },
     {
       name: "Founder+",
-      originalPrice: 249,
-      price: 124.50,
+      price: 249,
       description: "Complete solution with personal guidance",
       features: [
         "Everything in Growth",
@@ -75,25 +71,6 @@ const Pricing = () => {
   return (
     <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
-        {/* Countdown Timer */}
-        <div className="mb-8">
-          <CountdownTimer />
-        </div>
-
-        {/* Launch Day Special Banner */}
-        <div className="mb-12 bg-gradient-to-r from-red-500 to-orange-500 border-4 border-black dark:border-gray-100 p-6 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] animate-pulse">
-          <div className="flex items-center justify-center space-x-3 mb-3">
-            <Flame className="h-8 w-8 text-white animate-bounce" />
-            <h3 className="text-3xl font-black text-white">🚀 LAUNCH DAY SPECIAL!</h3>
-            <Flame className="h-8 w-8 text-white animate-bounce" />
-          </div>
-          <p className="text-white font-bold text-xl mb-2">50% OFF ALL PLANS - TODAY ONLY!</p>
-          <div className="flex items-center justify-center space-x-2">
-            <TrendingUp className="h-5 w-5 text-white" />
-            <span className="text-white font-medium">Save hundreds on your UX audit</span>
-          </div>
-        </div>
-
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-black text-black dark:text-gray-100 mb-6">
             Simple, Transparent Pricing
@@ -111,11 +88,6 @@ const Pricing = () => {
                 plan.popular ? 'scale-105' : ''
               } flex flex-col h-full`}
             >
-              {/* Launch Day Badge */}
-              <div className="absolute -top-4 -right-4 bg-red-500 border-2 border-black dark:border-gray-100 text-white px-3 py-1 font-black text-sm shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#f3f4f6] transform rotate-12 animate-pulse">
-                50% OFF!
-              </div>
-
               {plan.popular && (
                 <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
                   <div className="bg-red-400 border-4 border-black dark:border-gray-100 text-black px-4 py-2 font-black shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#f3f4f6] flex items-center space-x-1">
@@ -132,11 +104,9 @@ const Pricing = () => {
                 <p className="text-black dark:text-gray-200 font-bold mb-4">{plan.description}</p>
                 <div className="mb-6">
                   <div className="flex items-center justify-center space-x-2 mb-2">
-                    <span className="text-2xl font-bold text-gray-500 line-through">${plan.originalPrice}</span>
                     <span className="text-5xl font-black text-black dark:text-gray-100">${plan.price}</span>
                   </div>
                   <div className="text-black dark:text-gray-200 font-bold">ONE-TIME PAYMENT</div>
-                  <div className="text-red-600 font-black text-sm mt-1">SAVE ${(plan.originalPrice - plan.price).toFixed(2)}!</div>
                 </div>
               </div>
 
@@ -165,7 +135,7 @@ const Pricing = () => {
           ))}
         </div>
 
-        {/* Simplified Money-Back Guarantee */}
+        {/* Money-Back Guarantee */}
         <div className="mt-16 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6]">
           <div className="flex items-center justify-center space-x-3 mb-4">
             <Zap className="h-8 w-8 text-black" />
