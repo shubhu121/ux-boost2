@@ -122,7 +122,7 @@ const GetStarted = () => {
     <section 
       id="get-started" 
       ref={sectionRef}
-      className={`py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800 transition-all duration-1000 ${
+      className={`py-8 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800 transition-all duration-1000 ${
         sectionVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -136,7 +136,7 @@ const GetStarted = () => {
 
         <div 
           ref={titleRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-1000 ${
+          className={`text-center mb-8 sm:mb-12 transition-all duration-1000 ${
             titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >

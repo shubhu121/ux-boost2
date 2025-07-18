@@ -172,7 +172,7 @@ const Pricing = () => {
         {/* Money-Back Guarantee */}
         <div 
           ref={guaranteeRef}
-          className={`mt-16 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] transition-all duration-1000 transform ${
+          className={`mt-12 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] transition-all duration-1000 transform ${
             guaranteeVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
           }`}
         >
