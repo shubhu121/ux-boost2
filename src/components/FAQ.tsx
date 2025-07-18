@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const FAQ = () => {
+  const { ref: sectionRef, isVisible: sectionVisible } = useScrollAnimation();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: faqsRef, isVisible: faqsVisible } = useScrollAnimation({ threshold: 0.1, delay: 200 });
+  const { ref: contactRef, isVisible: contactVisible } = useScrollAnimation({ threshold: 0.3, delay: 400 });
+
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
@@ -48,26 +54,52 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <section 
+      id="faq" 
+      ref={sectionRef}
+      className={`py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 transition-all duration-1000 ${
+        sectionVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-black text-black dark:text-gray-100 mb-6">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h2 className={`text-4xl sm:text-5xl font-black text-black dark:text-gray-100 mb-6 transition-all duration-800 delay-200 ${
+            titleVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}>
             Frequently Asked Questions
           </h2>
-          <p className="text-xl font-bold text-black dark:text-gray-200">
+          <p className={`text-xl font-bold text-black dark:text-gray-200 transition-all duration-800 delay-400 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
             Everything you need to know about UX audits and how they work.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div 
+          ref={faqsRef}
+          className={`space-y-6 transition-all duration-1000 ${
+            faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}
+        >
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-gray-50 dark:bg-gray-800 border-4 border-black dark:border-gray-100 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#f3f4f6] hover:shadow-[8px_8px_0px_0px_#000] dark:hover:shadow-[8px_8px_0px_0px_#f3f4f6] transition-all duration-300 transform hover:-translate-x-1 hover:-translate-y-1">
+            <div 
+              key={index} 
+              className={`bg-gray-50 dark:bg-gray-800 border-4 border-black dark:border-gray-100 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#f3f4f6] hover:shadow-[8px_8px_0px_0px_#000] dark:hover:shadow-[8px_8px_0px_0px_#f3f4f6] transition-all duration-500 transform hover:-translate-x-1 hover:-translate-y-1 hover:scale-105 ${
+                faqsVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-yellow-300 dark:hover:bg-gray-700 transition-colors font-black text-black dark:text-gray-100"
+                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-yellow-300 dark:hover:bg-gray-700 transition-all duration-300 font-black text-black dark:text-gray-100 group"
               >
                 <span className="text-lg">{faq.question}</span>
-                <div className={`bg-blue-400 border-2 border-black dark:border-gray-100 p-2 transform ${openItems.includes(index) ? 'rotate-180' : ''} transition-transform duration-300`}>
+                <div className={`bg-blue-400 border-2 border-black dark:border-gray-100 p-2 transform ${openItems.includes(index) ? 'rotate-180' : ''} transition-all duration-300 group-hover:scale-110 group-hover:rotate-12`}>
                   {openItems.includes(index) ? (
                     <ChevronUp className="h-5 w-5 text-black" />
                   ) : (
@@ -76,7 +108,7 @@ const FAQ = () => {
                 </div>
               </button>
               {openItems.includes(index) && (
-                <div className="px-6 pb-4 border-t-4 border-black dark:border-gray-100">
+                <div className="px-6 pb-4 border-t-4 border-black dark:border-gray-100 animate-fade-in">
                   <p className="text-black dark:text-gray-200 font-bold leading-relaxed pt-4">{faq.answer}</p>
                 </div>
               )}
@@ -84,7 +116,12 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6]">
+        <div 
+          ref={contactRef}
+          className={`mt-12 bg-yellow-400 border-4 border-black dark:border-gray-100 p-8 text-center shadow-[12px_12px_0px_0px_#000] dark:shadow-[12px_12px_0px_0px_#f3f4f6] transition-all duration-1000 transform ${
+            contactVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <h3 className="text-3xl font-black text-black mb-4">
             Still Have Questions?
           </h3>
@@ -94,7 +131,10 @@ const FAQ = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
               href="mailto:hello@uxboost.site" 
-              className="bg-white border-4 border-black text-black px-6 py-3 font-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] transition-all duration-300 transform hover:-translate-x-1 hover:-translate-y-1"
+              className={`bg-white border-4 border-black text-black px-6 py-3 font-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] transition-all duration-300 transform hover:-translate-x-1 hover:-translate-y-1 hover:scale-105 ${
+                contactVisible ? 'scale-100' : 'scale-95'
+              }`}
+              style={{ transitionDelay: '200ms' }}
             >
               EMAIL ME
             </a>
@@ -102,7 +142,10 @@ const FAQ = () => {
               href="https://cal.com/positronx"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-400 border-4 border-black text-black px-6 py-3 font-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] transition-all duration-300 transform hover:-translate-x-1 hover:-translate-y-1"
+              className={`bg-blue-400 border-4 border-black text-black px-6 py-3 font-black shadow-[4px_4px_0px_0px_#000] hover:shadow-[6px_6px_0px_0px_#000] transition-all duration-300 transform hover:-translate-x-1 hover:-translate-y-1 hover:scale-105 ${
+                contactVisible ? 'scale-100' : 'scale-95'
+              }`}
+              style={{ transitionDelay: '400ms' }}
             >
               BOOK A CALL
             </a>
